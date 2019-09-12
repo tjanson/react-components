@@ -1,0 +1,32 @@
+{
+  "name": "@paquette/react-components",
+  "version": "0.0.0",
+  "main": "./build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./build && npm run tsc",
+    "dev": "./node_modules/.bin/tsc -w",
+    "format": "./node_modules/.bin/prettier ./src/**/*.{js,ts,tsx} --write",
+    "test": "echo \"Write tests! -> @paquette/react-components\"",
+    "tsc": "./node_modules/.bin/tsc"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/react": "^16.9.0",
+    "@types/zxcvbn": "^4.4.0",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.6.3"
+  },
+  "peerDependencies": {
+    "react": ">16.8"
+  },
+  "optionalDependencies": {
+    "zxcvbn": "^4.4.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react-jss": "^10.0.0-alpha.23"
+  }
+}
