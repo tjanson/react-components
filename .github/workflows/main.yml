@@ -1,0 +1,28 @@
+name: CI
+on: push
+jobs:
+  all:
+    name: "NPM"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12.9
+      - name: install
+        run: npm --unsafe-perm install
+      - name: format
+        run: npm --unsafe-perm run format
+      - name: lint
+        run: npm --unsafe-perm run lint
+      - name: test
+        run: npm --unsafe-perm run test
+      - name: prepublish
+        run: scripts/prepublish
+      # - name: test deprecations
+      #   if: startsWith(github.ref, 'refs/heads/release-')
+      #   run: script/test-deprecations.js
+      - uses: primer/publish@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
