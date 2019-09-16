@@ -9,8 +9,6 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12.9
-          registry-url: https://npm.pkg.github.com/
-          scope: "@paquette"
       - name: install
         run: npm --unsafe-perm install
       - name: format
@@ -21,10 +19,6 @@ jobs:
         run: npm --unsafe-perm run test
       - name: prepublish
         run: scripts/prepublish
-      # Required due to bug.
-      # See https://github.com/actions/setup-node/issues/52
-      - name: set .npmrc
-        run: printf "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@paquette:registry=https://npm.pkg.github.com/" > ~/.npmrc
       - uses: primer/publish@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
