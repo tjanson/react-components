@@ -7,8 +7,9 @@ npm run --silent build
 # run the bundle size and selector diff reports
 # scripts/run-reports
 
-files=$(git ls-files src | sed -e 's#^src/##' | sed -e 's#/.*$##' | sort -u)
-echo $files >publish-files.log
-cd src
-cp -rv $files ..
-cd -
+# Move Source files from src folder to project root
+# files=$(git ls-files src | sed -e 's#^src/##' | sed -e 's#/.*$##' | sort -u)
+# echo $files >publish-files.log
+# cd src
+# cp -rv $files ..
+# cd -
