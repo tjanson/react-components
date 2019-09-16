@@ -1,5 +1,5 @@
 {
-  "name": "@paquette/react-components",
+  "name": "@tjanson/react-components",
   "version": "0.0.4",
   "main": "./build/index.js",
   "license": "MIT",
@@ -8,8 +8,8 @@
     "dev": "./node_modules/.bin/tsc -w",
     "format": "./node_modules/.bin/prettier ./{src,__{tests,mocks}__}/**/**/*.{js,jsx,ts,tsx} --write",
     "format:check": "./node_modules/.bin/prettier ./{src,__{tests,mocks}__}/**/**/*.{js,jsx,ts,tsx} --check",
-    "lint": "echo \"No linting yet! -> @paquette/react-components\"",
-    "test": "echo \"Write tests! -> @paquette/react-components\"",
+    "lint": "echo \"No linting yet! -> @tjanson/react-components\"",
+    "test": "echo \"Write tests! -> @tjanson/react-components\"",
     "tsc": "./node_modules/.bin/tsc"
   },
   "devDependencies": {
@@ -33,6 +33,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/paquette/react-components.git"
+    "url": "ssh://git@github.com/tjanson/react-components.git"
   }
 }
