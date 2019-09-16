@@ -2,13 +2,15 @@ name: CI
 on: push
 jobs:
   all:
-    name: "NPM"
+    name: "Publish"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           node-version: 12.9
+          registry-url: https://npm.pkg.github.com/
+          scope: "@paquette"
       - name: install
         run: npm --unsafe-perm install
       - name: format
@@ -22,11 +24,6 @@ jobs:
       # - name: test deprecations
       #   if: startsWith(github.ref, 'refs/heads/release-')
       #   run: script/test-deprecations.js
-
-      # Required due to bug.
-      # See https://github.com/actions/setup-node/issues/52
-      - name: set .npmrc
-        run: printf "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@paquette:registry=https://npm.pkg.github.com/" > ~/.npmrc
       - uses: primer/publish@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
