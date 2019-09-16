@@ -26,7 +26,7 @@ jobs:
       # Required due to bug.
       # See https://github.com/actions/setup-node/issues/52
       - name: set .npmrc
-        run: echo "printf "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@paquette:registry=https://npm.pkg.github.com/" > ~/.npmrc
+        run: printf "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}\n@paquette:registry=https://npm.pkg.github.com/" > ~/.npmrc
       - uses: primer/publish@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
